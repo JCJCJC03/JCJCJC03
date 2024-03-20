@@ -1,48 +1,31 @@
-- 👋 Hi, I’m @JCJCJC03
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns ...
-- ⚡Learning Docker in 24 hours is ambitious but possible with focused effort. Here's a suggested plan:
+egrep "minlen|credit" /etc/security/pwquality.conf | grep -v "#"
 
-**Day 1: Basics**
-1. **Morning:**
-   - Understand the basics of containerization and Docker's role.
-   - Install Docker on your machine and learn basic Docker commands like `docker run`, `docker pull`, `docker ps`, `docker images`, etc.
-2. **Afternoon:**
-   - Dive into Dockerfile basics: creating Dockerfiles, using `FROM`, `RUN`, `COPY`, `CMD`, and `ENTRYPOINT` instructions.
-   - Build your first Docker image using a simple application.
 
-**Day 2: Intermediate**
-1. **Morning:**
-   - Explore Docker Compose for managing multi-container applications. Learn about `docker-compose.yml` files and basic commands like `docker-compose up`, `docker-compose down`, etc.
-   - Set up a multi-container environment using Docker Compose.
-2. **Afternoon:**
-   - Understand Docker networking: bridge, host, overlay, and none.
-   - Explore Docker volumes: understanding data persistence and sharing data between containers.
-   - Practice deploying a simple web application with multiple containers using Docker Compose.
+#!/bin/bash
 
-**Day 3: Advanced**
-1. **Morning:**
-   - Learn about Docker Swarm for orchestration: creating a Swarm, adding nodes, deploying services, and scaling.
-   - Understand the concept of Docker stacks and deploying multi-service applications.
-2. **Afternoon:**
-   - Explore Docker security: container isolation, user namespaces, Docker Content Trust, and best practices for securing your Docker environment.
-   - Dive into Docker monitoring and logging: exploring tools like Prometheus, Grafana, ELK stack, etc.
-   - Practice deploying a multi-service application using Docker Swarm.
+# Set variables
+PWQUALITY_CONF="/etc/security/pwquality.conf"
 
-**Day 4: Practice and Review**
-1. **Morning:**
-   - Review key concepts and commands.
-   - Practice building and deploying different types of applications using Docker.
-2. **Afternoon:**
-   - Work on a mini-project or solve some Docker-related challenges.
-   - Seek out additional resources or tutorials to deepen your understanding.
+# Update pwquality.conf file
+sudo sed -i.bak \
+-e '/\s*dcredit.*/s/.*/dcredit=-1/' \
+-e '/susucredit.*/s/.*/ucredit=-1/' \
+-e '/selcredit.*\solcredit.*/s/.*/lcredit=-1/' \
+-e '/minlen.*/s/.*/minlen=8/' \
+$PWQUALITY_CONF
 
-Remember, hands-on practice and experimentation are crucial for understanding Docker concepts effectively. Good luck with your learning journey! Fun fact: ...
 
-<!---
-JCJCJC03/JCJCJC03 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+What this command does
+
+chage -d 2024-03-20 -m 7-M 90-I-1-E-1 <user id>
+
+This command modifies the password change information for a user. Let's break it down:
+
+- `chage`: This command is used to change user password expiry information.
+- `-d 2024-03-20`: Sets the date of the last password change to March 20, 2024.
+- `-m 7`: Sets the minimum number of days between password changes to 7.
+- `-M 90`: Sets the maximum number of days the password is valid before the user is required to change it (in this case, 90 days).
+- `-I -1`: Sets the number of days after a password expires before the account is disabled (in this case, the account will not be disabled after the password expires).
+- `-E -1`: Sets the number of days before the account expires that the user is warned that their password will expire (in this case, the user will not receive a warning).
+
+Replace `<user id>` with the actual user ID for which you want to modify the password change information.
