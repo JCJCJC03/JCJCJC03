@@ -1,0 +1,108 @@
+Thanks for sharing the image. Here’s a detailed performance document elaboration based on the points from your image:
+
+
+---
+
+Year-End Performance Review Document
+
+Key Responsibilities and Contributions:
+
+1. Application Management:
+
+Successfully managed a portfolio of approximately 125 applications across VPS, Billing, Service Assurance, and Public Sector projects, collaborating closely with senior directors.
+
+
+
+2. Infrastructure and Technology Upgrades:
+
+Spearheaded the Fortify upgrade from version 23.2 to 24.2 on March 24th, ensuring seamless compatibility for critical applications.
+
+Upgraded JDK from version 8 to version 17 to enhance performance and ensure compatibility with modern security standards.
+
+Migrated infrastructure from AWS EC2 to AWS EKS Kubernetes, streamlining operations and improving scalability.
+
+
+
+3. Migration and Rehydration Projects:
+
+Led the migration of teams from unsupported Solaris and CENN OS to Windows/Linux environments.
+
+Prepared comprehensive Spring Migration guidelines to facilitate team transitions.
+
+Completed AWS Rehydration for both SLATE and VPP applications, optimizing cloud resource utilization.
+
+
+
+4. Security and Compliance:
+
+Achieved 100% security clearance for production deployment across all assigned applications.
+
+Automated Zerodun scans for all teams, significantly enhancing security efficiency.
+
+Exceeded expectations by achieving 100% scan accuracy for SAST, DAST, API Static/Dynamic Testing, and RASP, surpassing the industry benchmark of 95%.
+
+
+
+5. End-of-Service-Life (EOSL) Management:
+
+Successfully drove EOSL reminders and tasks for 41 applications, ensuring timely completion and compliance, with the remainder on track for 2025 completion.
+
+
+
+6. Collaboration and Stakeholder Management:
+
+Played a pivotal role in cross-functional collaboration to complete 150+ migrations, ensuring smooth handovers and minimal disruption to ongoing operations.
+
+Proactively worked with the DevOps team to implement dependency-free solutions, improving operational agility.
+
+
+
+
+Key Achievements and Metrics:
+
+Maintained 100% KPI achievement across VPS, Billing, and Service Assurance verticals.
+
+Instrumental in achieving overall CyberCup metrics for the VPC team, solidifying the organization's performance benchmarks.
+
+Volunteered 5 hours to initiatives beyond job responsibilities, showcasing commitment to organizational goals.
+
+
+Professional Development and Certifications:
+
+Earned two professional certifications from Oracle:
+
+1. Oracle Certified Professional Java SE 17 Developer
+
+
+2. Oracle Autonomous Database Cloud Specialist
+
+
+
+Actively pursuing cybersecurity excellence with the CC (Certified in Cybersecurity) from (ISC)², with the exam scheduled for 2025.
+
+
+Key Strengths Demonstrated:
+
+Adaptability: Seamlessly transitioned critical infrastructure, including applications and security platforms, to modern, supported environments.
+
+Leadership: Proactively led migration and rehydration projects, ensuring high team morale and delivering results ahead of schedule.
+
+Technical Expertise: Consistently delivered high-quality security and application management solutions, exceeding benchmarks and ensuring robust system performance.
+
+Collaboration: Worked with multiple teams to deliver large-scale projects, ensuring alignment with organizational objectives and seamless cross-functional coordination.
+
+
+Future Goals:
+
+Continue to enhance security measures with proactive automation and monitoring techniques.
+
+Expand technical expertise by completing advanced certifications in cloud computing and cybersecurity.
+
+Lead more cross-functional initiatives, further contributing to organizational efficiency and excellence.
+
+
+
+---
+
+Let me know if you'd like me to fine-tune this further or focus on specific areas!
+
