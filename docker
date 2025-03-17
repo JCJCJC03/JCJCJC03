@@ -1,0 +1,62 @@
+It looks like there might be some issues with the instructions. Let’s go step by step to troubleshoot and fix them.
+
+Steps to Install and Run Sysdig Inline Scanner on RHEL 8
+
+1. Ensure Proxy is Set (If Required)
+
+If your environment requires a proxy, set it before running any commands:
+
+export http_proxy=http://your-proxy:port
+export https_proxy=http://your-proxy:port
+
+2. Download the Sysdig Inline Scanner
+
+The given command seems to have formatting issues. Use this instead:
+
+curl -Lo sysdig-cli-scanner "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -Ls https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"
+
+If the above command fails, try:
+
+curl -LO "https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt"
+VERSION=$(cat latest_version.txt)
+curl -Lo sysdig-cli-scanner "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/${VERSION}/linux/amd64/sysdig-cli-scanner"
+
+Now, give it execution permission:
+
+chmod +x sysdig-cli-scanner
+
+Verify it’s installed correctly:
+
+./sysdig-cli-scanner --version
+
+3. Ensure the Docker Image is Available Locally
+
+List local images to check if the target image exists:
+
+docker images
+
+If the image is not present, pull it manually:
+
+docker pull go0v-vzdocker.oneartifactoryprod.verizon.com/openjdk-newrelic:5.9.0-11.0.6-jre-stretch-10
+
+4. Run the Inline Scanner
+
+Make sure to replace <your-api-token> and <sysdig-api-url> with actual values:
+
+SECURE_API_TOKEN=<your-api-token> ./sysdig-cli-scanner --apiurl https://app.us3.sysdig.com go0v-vzdocker.oneartifactoryprod.verizon.com/openjdk-newrelic:5.9.0-11.0.6-jre-stretch-10
+
+If you get an error about authentication, ensure your token is correct.
+
+5. Common Troubleshooting Tips
+
+Permission Issues: Run the commands as sudo if needed.
+
+Network Issues: Check if your system can reach Sysdig’s servers:
+
+curl -I https://download.sysdig.com
+
+Incorrect API Token: Verify it’s valid by logging into Sysdig’s web interface.
+
+
+Try these steps and let me know what errors you’re getting if it still doesn’t work!
+
