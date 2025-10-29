@@ -1,0 +1,53 @@
+# test_flag.py
+# Paste into a file and run with: py test_flag.py
+
+expected = [
+    0xD8, 0xB1, 0x99, 0xFA, 0x98, 0xD2, 0xB1, 0xF9,
+    0xD2, 0xF8, 0xD1, 0xEB, 0x91, 0xD1, 0x98, 0xF1,
+    0xD9, 0xD9, 0xD2, 0x9B, 0xD9, 0xD9, 0xF3
+]
+
+def switch_bits(byteval, p1, p2):
+    """Swap bit p1 and p2 in byteval (0 = least significant)."""
+    b1 = (byteval >> p1) & 1
+    b2 = (byteval >> p2) & 1
+    if b1 == b2:
+        return byteval
+    mask = (1 << p1) | (1 << p2)
+    return byteval ^ mask
+
+def scramble_string(s):
+    """Emulate the Java scramble() shown in the screenshot.
+       For each character's byte value, do these swaps in order:
+         (0,2), (1,3), (4,5), (6,7), (2,6)
+    """
+    out = []
+    for ch in s:
+        bv = ord(ch) & 0xFF
+        bv = switch_bits(bv, 0, 2)
+        bv = switch_bits(bv, 1, 3)
+        bv = switch_bits(bv, 4, 5)
+        bv = switch_bits(bv, 6, 7)
+        bv = switch_bits(bv, 2, 6)
+        out.append(bv)
+    return out
+
+def check(candidate):
+    scr = scramble_string(candidate)
+    return scr == expected
+
+candidates = [
+    "ctf{bitwise_debuggingg}",
+    "ctf{bitwise_debugging}"
+]
+
+print("Testing candidates...\n")
+for cand in candidates:
+    ok = check(cand)
+    print(f"{cand!r}: {'MATCH' if ok else 'no match'}")
+
+# optional: show scrambled hex for the candidate we recovered earlier
+print("\nScrambled bytes for the successful candidate (if any):")
+for cand in candidates:
+    scr = scramble_string(cand)
+    print(f"\n{cand!r} ->", " ".join(f"{b:02x}" for b in scr))
